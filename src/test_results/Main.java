@@ -7,6 +7,7 @@ public class Main {
 	public static void main(String[] args) {
 		
 		Solutions solution = new Solutions();
+		double startTime = System.nanoTime();
 	
 		//1) Multiples of 3 and 5
 		//System.out.println("1) " + solution.multiplesOf3And5(1000) + "\n"); 
@@ -26,7 +27,21 @@ public class Main {
 		//6) Sum square difference
 		//System.out.println("6) " + solution.sumSquareDifference(100)+ "\n");
 		
-
+		//7) 10001th prime
+		//System.out.println("7) " + solution.nthPrime(10001));
+		
+		//8) Largest product in a series
+		//System.out.println("8) " + solution.largestInASeries(13));
+		
+		//9) Special Pythagorean triplet
+		//System.out.println("9) " + solution.specialPythagorean());
+		
+		//10) Summation of primes
+		System.out.println("10) " + solution.summationOfPrime(2000000));
+		
+		//print out the exec time
+		double endTime   = System.nanoTime();
+		double totalTime = endTime - startTime;
+		System.out.println(totalTime / 1000000000);
 	}
-
 }
