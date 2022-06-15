@@ -37,7 +37,19 @@ public class Main {
 		//System.out.println("9) " + solution.specialPythagorean());
 		
 		//10) Summation of primes
-		System.out.println("10) " + solution.summationOfPrime(2000000));
+		//System.out.println("10) " + solution.summationOfPrime(2000000));
+		
+		//11) Largest product in a grid
+		//System.out.println("11) " + solution.largestInAGrid());
+		
+		//12) Highly divisible triangular number -- 37 seconds
+		//System.out.println("12) " + solution.highlyDivisibleTriangle(500));
+		
+		//13) Large sum
+		//System.out.println("13) " + solution.largeSum());
+		
+		//14) Longest collatz sequence
+		//System.out.println("13) " + solution.largeSum());
 		
 		//print out the exec time
 		double endTime   = System.nanoTime();
