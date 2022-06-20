@@ -1,6 +1,6 @@
 package test_results;
 
-import implementations.Solutions;
+import implementation.Solutions;
 
 public class Main {
 
@@ -49,7 +49,19 @@ public class Main {
 		//System.out.println("13) " + solution.largeSum());
 		
 		//14) Longest collatz sequence
-		//System.out.println("13) " + solution.largeSum());
+		//System.out.println("14) " + solution.longestCollatzSequence(1000000));
+		
+		//15) Lattice paths
+		//System.out.println("15) " + solution.latticePath(21, 21));
+		
+		//16) Power digit sum
+		//System.out.println("16) " + solution.powerDigitSum());
+		
+		//17) Number letter counts
+		//System.out.println("17) " + solution.numberLetterCount());
+		
+		//18) Maximum path sum I
+		System.out.println("17) " + solution.maximumPathSum());
 		
 		//print out the exec time
 		double endTime   = System.nanoTime();
