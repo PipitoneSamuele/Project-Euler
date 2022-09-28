@@ -1,10 +1,13 @@
 package test_results;
 
+import java.io.IOException;
+
 import implementation.Solutions;
+import utility.Fraction;
 
 public class Main {
 
-	public static void main(String[] args) {
+	public static void main(String[] args) throws IOException {
 		
 		Solutions solution = new Solutions();
 		double startTime = System.nanoTime();
@@ -61,11 +64,36 @@ public class Main {
 		//System.out.println("17) " + solution.numberLetterCount());
 		
 		//18) Maximum path sum I
-		System.out.println("17) " + solution.maximumPathSum());
+		//System.out.println("18) " + solution.maximumPathSum());
+		
+		//19) Counting Sundays
+		//System.out.println("19) " + solution.countingSundays());
+		
+		//20) Factorial digit sum
+		//System.out.println("20) " + solution.factorialDigitSum());
+		
+		//21) Amicable numbers
+		//System.out.println("21) " + solution.amicableNumbers(10000));
+		
+		//22) Names scores TODO
+		//System.out.println("22) " + solution.nameScore());
+		
+		//23) Non-abundant sum
+		//System.out.println("23) " + solution.nonAbundantSum());
+		
+		//24) Lexicographic permutations TODO
+		//System.out.println("24) " + solution.lexicographicPermutations());
+		
+		//25) Lexicographic permutations 
+		//System.out.println("25) " + solution.oneKDigitFibonacci());
+		
+		//26) Reciprocal cycles
+		//System.out.println("26) " + solution.reciprocalCycle());
+		
 		
 		//print out the exec time
 		double endTime   = System.nanoTime();
 		double totalTime = endTime - startTime;
-		System.out.println(totalTime / 1000000000);
+		System.out.println(totalTime / 1000000000 + " sec");
 	}
 }

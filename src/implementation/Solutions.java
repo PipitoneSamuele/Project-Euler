@@ -1,6 +1,9 @@
 package implementation;
 
 import java.math.BigInteger;
+import java.time.DayOfWeek;
+import java.time.LocalDate;
+
 
 import utility.BigString;
 import utility.MyStringUtility;
@@ -498,7 +501,250 @@ public class Solutions {
 	
 	//18) ----------------------------------------------------------------------------------------------------------------
 	public int maximumPathSum() {
-		return 0;
+		
+		int[][] pyramid = {
+				{75},
+				{95,64},
+				{17,47,82},
+				{18,35,87,10},
+				{20, 4,82,47,65},
+				{19, 1,23,75, 3,34},
+				{88, 2,77,73, 7,63,67},
+				{99,65, 4,28, 6,16,70,92},
+				{41,41,26,56,83,40,80,70,33},
+				{41,48,72,33,47,32,37,16,94,29},
+				{53,71,44,65,25,43,91,52,97,51,14},
+				{70,11,33,28,77,73,17,78,39,68,17,57},
+				{91,71,52,38,17,14,91,43,58,50,27,29,48},
+				{63,66, 4,68,89,53,67,30,73,16,69,87,40,31},
+				{ 4,62,98,27,23, 9,70,98,73,93,38,53,60, 4,23}
+			};
+		
+		for(int i = pyramid.length - 2; i >= 0; i--) {
+			for(int j = 0; j < pyramid[i].length; j++) {
+				pyramid[i][j] += Math.max(pyramid[i+1][j], pyramid[i+1][j+1]);
+			}
+		}
+		
+		return pyramid[0][0];
 	}
 	
+	//19) ----------------------------------------------------------------------------------------------------------------
+	public int countingSundays() {
+		
+		LocalDate currentDate = LocalDate.parse("1901-01-01");
+		LocalDate upperBound = LocalDate.parse("2000-11-30");
+		int countSundays = 0;
+		
+		while(upperBound.isAfter(currentDate)) {
+			if(currentDate.getDayOfWeek().equals(DayOfWeek.SUNDAY)) {
+				countSundays++;
+			}
+			currentDate = currentDate.plusMonths(1);
+		}
+		
+		return countSundays;
+	}
+	
+	//20) ----------------------------------------------------------------------------------------------------------------
+	public long factorialDigitSum() {
+		
+		BigInteger bigFactorial = new BigInteger("1");
+		BigInteger count = new BigInteger("1");
+		BigInteger increment = new BigInteger("1");
+		String bigFactorialString;
+		long ret = 0;
+		
+		//calculating 100!
+		for(int i = 2; i < 102; i++) {
+			bigFactorial = bigFactorial.multiply(count);
+			count = count.add(increment);
+		}
+		
+		bigFactorialString = bigFactorial.toString();
+		
+		//sum
+		for(int i = 0; i < bigFactorialString.length(); i++) {
+			ret += Integer.parseInt(bigFactorialString.substring(i, i+1));
+		}
+		
+		return ret;
+	}
+	
+	//21) ----------------------------------------------------------------------------------------------------------------
+	public int amicableNumbers(int n) {
+		
+		int ret = 0;
+
+		for(int i = 0; i < n; i++) {
+			if(isAmicable(i)) {
+				ret += i;
+			}
+		}
+		
+		return ret;
+	}
+	
+	public boolean isAmicable(int a) {
+		int b = getPossibleAmicable(a);
+		return a != b && a == getPossibleAmicable(b);
+	}
+	
+	public int getPossibleAmicable(int n) {
+		int ret = 0;
+		for(int i = 1; i < n; i++) {
+			if(n % i == 0) {
+				ret += i;
+			}
+		}
+		return ret;
+	}
+	
+	//22) ----------------------------------------------------------------------------------------------------------------
+	public long nameScore() {
+	return 0;
+	//TODO
+	} 
+	
+	
+	//23 -----------------------------------------------------------------------------------------------------------------
+	public long nonAbundantSum() {
+		
+		final int UPPER_LIMIT = 28123;
+		boolean[] abundantSum = new boolean[UPPER_LIMIT];
+		int[] abundant = new int[UPPER_LIMIT];
+		int countAbundant = 0;
+		int currValue = 0;
+		long ret = 0;
+		
+		//i create an array of abundant numbers only
+		for(int i = 0; i < UPPER_LIMIT; i++) {
+			if(isAbundant(i)) {
+				abundant[countAbundant] = i;
+				countAbundant++;
+			}
+		}
+		
+		//i then create an array of non abundant sum
+		for(int i = 0; i < UPPER_LIMIT; i++) {
+			for(int j = 0; j < UPPER_LIMIT; j++) {
+				if(abundant[i] != 0 && abundant[j] != 0 && ((abundant[i] + abundant[j]) < UPPER_LIMIT)) {
+					currValue = abundant[i] + abundant[j];
+					if(currValue < UPPER_LIMIT) {
+						abundantSum[currValue] = true;
+					}
+				}
+			}
+		}
+		
+		//sum up all the non abundant sum
+		for(int i = 0; i < UPPER_LIMIT; i++) {
+			if(!abundantSum[i]) {
+				ret += i;
+			}
+		}
+		
+		return ret;
+	}
+	
+	public boolean isAbundant(int n) {
+		
+		int divisors = 0;
+		int limit = (int) Math.ceil(n/2);
+		
+		for(int i = 1; i < n; i++) {
+			if(n % i == 0 && i <= limit) {
+				divisors += i;
+			}
+		}
+		
+		return divisors > n;
+	}
+	
+	//24 -----------------------------------------------------------------------------------------------------------------
+	public long lexicographicPermutations() {
+		
+		char[] characters = {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9'};
+		final int MAX = 1000001;
+		String ret = "";
+		
+		for(int i = 0; i < MAX; i++) {
+			characters = smartPermutation(characters);
+		}
+		
+		for(int i = 0; i < characters.length; i++) {
+			ret += characters[i];
+		}
+		
+		return Integer.parseInt(ret);
+	}
+	
+	public char[] smartPermutation(char[] characters) {
+		
+		
+		
+		return characters;
+	}
+	
+	//25 -----------------------------------------------------------------------------------------------------------------
+	public long oneKDigitFibonacci() {
+		
+		long ret = 3;
+		
+		ret = myFibonacci(ret, "1", "1");
+		
+		return ret;
+	}
+	
+	public long myFibonacci(long iteration, String firstTerm, String secondTerm) {
+		BigInteger biFirst = new BigInteger(firstTerm);
+		BigInteger biSecond = new BigInteger(secondTerm);
+		
+		biFirst = biFirst.add(biSecond);
+		
+		if(biFirst.toString().length() >= 1000) {
+			return iteration;
+		} else {
+			iteration = iteration + 1;
+			return myFibonacci(iteration, biSecond.toString(), biFirst.toString());
+		}
+	}
+	
+	//26 -----------------------------------------------------------------------------------------------------------------
+	public long reciprocalCycle() {
+		
+		double value = 0;
+		
+		for(int i = 1; i < 1001; i++) {
+			value = 1d / i;
+		}
+		
+		return 1;
+	}
+	
+	
+	
+	
+	
+	
+	
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+
 }
