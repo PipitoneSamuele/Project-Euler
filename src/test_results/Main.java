@@ -10,7 +10,10 @@ public class Main {
 		double startTime = System.nanoTime();
 	
 		//1) Multiples of 3 and 5
-		System.out.println("1) " + solution.multiplesOf3And5(1000) + "\n");
+		//System.out.println("1) " + solution.multiplesOf3And5(1000) + "\n");
+
+		//2) Even fibonacci
+		System.out.println("2) " + solution.evenFibonacci(1, 1, 4000000, 0) + "\n");
 
 		//print out the exec time
 		double endTime   = System.nanoTime();
