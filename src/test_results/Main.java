@@ -13,7 +13,12 @@ public class Main {
 		//System.out.println("1) " + solution.multiplesOf3And5(1000) + "\n");
 
 		//2) Even fibonacci
-		System.out.println("2) " + solution.evenFibonacci(1, 1, 4000000, 0) + "\n");
+		//System.out.println("2) " + solution.evenFibonacci(1, 1, 4000000, 0) + "\n");
+
+		//3) Largest prime factor
+		//System.out.println("2) " + solution.largestPrimeFactor() + "\n");
+
+		System.out.println(solution.largestPrimeFactor(600851475143L));
 
 		//print out the exec time
 		double endTime   = System.nanoTime();
