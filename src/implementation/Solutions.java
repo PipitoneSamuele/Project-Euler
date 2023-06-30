@@ -130,6 +130,38 @@ public class Solutions {
 		return solution;
 	}
 
+	/**
+	 * @return difference between sumSquare and squareSum
+	 */
+	public long sumSquareDifference() {
+		long sumSquare100 = sumSquareNumbers(100);
+		long squareSumNumbers = squareSumNumbers(100);
+		return squareSumNumbers - sumSquare100;
+	}
 
+	/**
+	 * @param n number of iterations
+	 * @return the nth sum square
+	 */
+	public long sumSquareNumbers(int n) {
+		long ret = 0;
+		for(int i = 1; i <= n; i++) {
+			ret += Math.pow(i, 2);
+		}
+		return ret;
+	}
+
+	/**
+	 *
+	 * @param n number of iterations
+	 * @return the nth square sum
+	 */
+	public long squareSumNumbers(int n) {
+		long ret = 0;
+		for(int i = 1; i <= n; i++) {
+			ret += i;
+		}
+		return (long) Math.pow(ret, 2);
+	}
 
 }

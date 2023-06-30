@@ -22,7 +22,10 @@ public class Main {
 		//System.out.println(solution.isPalindromeProduct() + "\n");
 
 		//5) Smallest multiple
-		System.out.println(solution.smallestMultiple() + "\n");
+		//System.out.println(solution.smallestMultiple() + "\n");
+
+		//6) Sum square difference
+		System.out.println(solution.sumSquareDifference() + "\n");
 
 		//print out the exec time
 		double endTime   = System.nanoTime();
