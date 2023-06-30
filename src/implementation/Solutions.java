@@ -1,13 +1,9 @@
 package implementation;
 
-
-import com.sun.source.tree.ReturnTree;
-
 public class Solutions {
 
 	/**-----------------------------------------------------------------------------------------------------------------
 	 * 1) multiple of 3 or 5
-	 *
 	 * pretty bad but linear time of execution -> O(n)
 	 *
 	 * @param n: number of iteration
@@ -26,7 +22,6 @@ public class Solutions {
 
 	/**-----------------------------------------------------------------------------------------------------------------
 	 * 2) Even Fibonacci numbers
-	 *
 	 * 	most basic algorithm i came up with, will follow an improved version.
 	 * 	time complexity: O(n) ? not sure TODO: improve this
 	 *
@@ -49,7 +44,6 @@ public class Solutions {
 
 	/**-----------------------------------------------------------------------------------------------------------------
 	 * 3) Largest prime factor
-	 *
 	 * compute time O(n^2) but i reduced the input length by taking the square root of the
 	 * number instead of the whole number.
 	 *
@@ -72,7 +66,6 @@ public class Solutions {
 	/**
 	 * Check if n is prime, i reduced the time complexity by taking the square root of n
 	 * instead of the full number
-	 *
 	 * time O(n)
 	 *
 	 * @param n the number to check
@@ -88,29 +81,10 @@ public class Solutions {
 		return true;
 	}
 
-	/**-----------------------------------------------------------------------------------------------------------------
-	 * 4) Is palindome product
-	 *
-	 *
-	 *
-	 */
-	public int isPalindromeProduct() {
-		int ret = 0;
-		for(int i = 100; i < 999; i++) {
-			for(int j = 100; j < 999; j++) {
-				if(isPalindrome( i*j) && i*j > ret) {
-					ret = i*j;
-				}
-			}
-		}
-		return ret;
-	}
-
 	/**
 	 * First it check if the length of the string is odd, in this case i delete
 	 * the central character, then cycle through the string and return false at
 	 * the first mismatch
-	 *
 	 * time O(n)
 	 *
 	 * @param n int to check
@@ -128,5 +102,34 @@ public class Solutions {
 		}
 		return true;
 	}
+
+	/**
+	 *	Bad implementation but it works so...
+	 *
+	 * @return minimum number divisible by number from 1 to 20
+	 */
+	public int smallestMultiple() {
+		int solution = 20;
+		boolean solutionFound = true;
+
+		while(solutionFound) {
+			if(		solution % 7 == 0 &&
+					solution % 8 == 0 &&
+					solution % 9 == 0 &&
+					solution % 11 == 0 &&
+					solution % 13 == 0 &&
+					solution % 15 == 0 &&
+					solution % 16 == 0 &&
+					solution % 17 == 0 &&
+					solution % 18 == 0 &&
+					solution % 19 == 0 &&
+					solution % 20 == 0) {
+				solutionFound = false;
+			} else solution += 1;
+		}
+		return solution;
+	}
+
+
 
 }

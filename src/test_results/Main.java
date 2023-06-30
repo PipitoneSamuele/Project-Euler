@@ -21,6 +21,9 @@ public class Main {
 		//4) Largest palindrome product
 		//System.out.println(solution.isPalindromeProduct() + "\n");
 
+		//5) Smallest multiple
+		System.out.println(solution.smallestMultiple() + "\n");
+
 		//print out the exec time
 		double endTime   = System.nanoTime();
 		double totalTime = endTime - startTime;
