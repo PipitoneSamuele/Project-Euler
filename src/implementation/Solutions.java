@@ -1,6 +1,8 @@
 package implementation;
 
 
+import com.sun.source.tree.ReturnTree;
+
 public class Solutions {
 
 	/**-----------------------------------------------------------------------------------------------------------------
@@ -48,7 +50,8 @@ public class Solutions {
 	/**-----------------------------------------------------------------------------------------------------------------
 	 * 3) Largest prime factor
 	 *
-	 * compute time O(n^2) but i reduced the n length by take the square root.
+	 * compute time O(n^2) but i reduced the input length by taking the square root of the
+	 * number instead of the whole number.
 	 *
 	 * @param n the number to compute for the prime factors
 	 * @return Return the largest prime factor of n
@@ -66,10 +69,60 @@ public class Solutions {
 		return max;
 	}
 
+	/**
+	 * Check if n is prime, i reduced the time complexity by taking the square root of n
+	 * instead of the full number
+	 *
+	 * time O(n)
+	 *
+	 * @param n the number to check
+	 * @return true if n is prime, else false
+	 */
 	public boolean isPrime(int n) {
 		int root = (int) Math.sqrt(n) + 1;
 		for(int i = 3; i < root; i += 2) {
 			if(n % i == 0) {
+				return false;
+			}
+		}
+		return true;
+	}
+
+	/**-----------------------------------------------------------------------------------------------------------------
+	 * 4) Is palindome product
+	 *
+	 *
+	 *
+	 */
+	public int isPalindromeProduct() {
+		int ret = 0;
+		for(int i = 100; i < 999; i++) {
+			for(int j = 100; j < 999; j++) {
+				if(isPalindrome( i*j) && i*j > ret) {
+					ret = i*j;
+				}
+			}
+		}
+		return ret;
+	}
+
+	/**
+	 * First it check if the length of the string is odd, in this case i delete
+	 * the central character, then cycle through the string and return false at
+	 * the first mismatch
+	 *
+	 * time O(n)
+	 *
+	 * @param n int to check
+	 * @return true if s is palindrome, else false
+	 */
+	public boolean isPalindrome(int n) {
+		String s = Integer.toString(n);
+		if(s.length() % 2 != 0) {
+			s = s.substring(0, (s.length()-1)/2) + s.substring((s.length()+1)/2);
+		}
+		for(int i = 0; i < s.length()/2; i++) {
+			if(s.charAt(i) != s.charAt(s.length()-1-i)) {
 				return false;
 			}
 		}
