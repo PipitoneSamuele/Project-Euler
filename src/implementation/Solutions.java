@@ -1,5 +1,7 @@
 package implementation;
 
+import utility.BigString;
+
 public class Solutions {
 
 	/**-----------------------------------------------------------------------------------------------------------------
@@ -152,7 +154,6 @@ public class Solutions {
 	}
 
 	/**
-	 *
 	 * @param n number of iterations
 	 * @return the nth square sum
 	 */
@@ -162,6 +163,44 @@ public class Solutions {
 			ret += i;
 		}
 		return (long) Math.pow(ret, 2);
+	}
+
+	/**
+	 * @param dimension number of iterations
+	 * @return the dimension-th prime
+	 */
+	public int tenThousOneThPrime(int dimension) {
+		int count = 2;
+		int currentNumber = 3;
+
+		while(count < dimension) {
+			currentNumber += 2;
+			if(isPrime(currentNumber)) {
+				count += 1;
+			}
+		}
+		return currentNumber;
+	}
+
+	public long largestProductInSeries() {
+		String series = BigString.PRODUCTSERIES;
+		long currentTotal13 = 0;
+		long max = 0;
+		long currentNumber = -1;
+
+		for(int i = 0; i < (series.length()-13); i++) {
+			currentTotal13 = 1;
+			for(int j = 0; j < 13; j++) {
+				currentNumber = Character.getNumericValue(series.charAt(i+j));
+				if(currentNumber != 0) {
+					currentTotal13 *= currentNumber;
+				} else break;
+			}
+			if(currentTotal13 > max) {
+				max = currentTotal13;
+			}
+		}
+		return max;
 	}
 
 }
