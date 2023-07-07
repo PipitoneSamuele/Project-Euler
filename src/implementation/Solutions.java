@@ -182,6 +182,12 @@ public class Solutions {
 		return currentNumber;
 	}
 
+	/**
+	 * i used a double for loop because it is just 1k elements and as a way to reduce
+	 * the total number of iterations i skipped everytime i find a 0.
+	 *
+	 * @return the largest product of 13 elements
+	 */
 	public long largestProductInSeries() {
 		String series = BigString.PRODUCTSERIES;
 		long currentTotal13 = 0;
@@ -202,5 +208,28 @@ public class Solutions {
 		}
 		return max;
 	}
+
+	/**
+	 * ugly code, time complexity O(n^3) but for n=500 is doable
+	 * @return the pythagorean triple for a+b+c=1000
+	 */
+	public int pythagoreanTriplet() {
+
+		for(int a = 0; a < 500; a++) {
+			for(int b = 0; b < 500; b++) {
+				for(int c = 0; c < 500; c++) {
+					if(a+b+c == 1000) {
+						if(Math.pow(a, 2) + Math.pow(b, 2) == Math.pow(c, 2)) {
+							return a*b*c;
+						}
+					}
+				}
+			}
+		}
+
+		return 0;
+	}
+
+
 
 }

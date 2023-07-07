@@ -25,7 +25,16 @@ public class Main {
 		//System.out.println(solution.smallestMultiple() + "\n");
 
 		//6) Sum square difference
-		System.out.println(solution.sumSquareDifference() + "\n");
+		//System.out.println(solution.sumSquareDifference() + "\n");
+
+		//7) 10001st prime
+		//System.out.println(solution.tenThousOneThPrime(10001) + "\n");
+
+		//8) Largest product in a series
+		//System.out.println(solution.largestProductInSeries() + "\n");
+
+		//9) Special pythagorean triplet
+		System.out.println(solution.pythagoreanTriplet() + "\n");
 
 		//print out the exec time
 		double endTime   = System.nanoTime();
