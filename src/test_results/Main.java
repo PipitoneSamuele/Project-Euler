@@ -34,7 +34,10 @@ public class Main {
 		//System.out.println(solution.largestProductInSeries() + "\n");
 
 		//9) Special pythagorean triplet
-		System.out.println(solution.pythagoreanTriplet() + "\n");
+		//System.out.println(solution.pythagoreanTriplet() + "\n");
+
+		//10) Special pythagorean triplet
+		System.out.println(solution.sumPrime(2000000) + "\n");
 
 		//print out the exec time
 		double endTime   = System.nanoTime();

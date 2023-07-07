@@ -74,9 +74,14 @@ public class Solutions {
 	 * @return true if n is prime, else false
 	 */
 	public boolean isPrime(int n) {
-		int root = (int) Math.sqrt(n) + 1;
-		for(int i = 3; i < root; i += 2) {
-			if(n % i == 0) {
+		if(n < 2) return false;
+		if(n == 2 || n == 3) return true;
+		if(n % 2 == 0 || n % 3 == 0) return false;
+
+		long root = (long) Math.sqrt(n) + 1;
+
+		for(long i = 6L; i <= root; i += 6) {
+			if(n % (i-1) == 0 || n % (i+1) == 0) {
 				return false;
 			}
 		}
@@ -230,6 +235,23 @@ public class Solutions {
 		return 0;
 	}
 
+	/**
+	 * simple implementation, i improved my isPrime function to be a lot more efficient
+	 *
+	 * @param max number of iterations
+	 * @return the sum of the prime elements till max
+	 */
+	public long sumPrime(int max) {
+		int i = 1;
+		long sum = 0;
 
+		while(i < max) {
+			i += 1;
+			if(isPrime(i)) {
+				sum += i;
+			}
+		}
+		return sum;
+	}
 
 }
