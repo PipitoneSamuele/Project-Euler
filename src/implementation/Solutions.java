@@ -254,4 +254,83 @@ public class Solutions {
 		return sum;
 	}
 
+	/**
+	 * time complexity O(4n^2) but n = 20 so it's not that bad
+	 *
+	 * @return the largest product of 4 elements in every direction in the grid
+	 */
+	public int largestProductInGrid() {
+		String grid = BigString.GRID;
+		int j = 0;
+		int i = 0;
+		int number;
+		int[][] numberGrid = new int[20][20];
+
+		int currentProduct = 0;
+		int maxProduct = 0;
+
+		//Preprocess -> transform the String into a matrix !!!!!!!!
+		// NOTA BENE PER FUTURO -> nei casi in cui ti serve un mapping e usi diversi indici cerca se
+		// ci sia un modo efficiente per farlo, ogni volta ci sbatti la testa
+		for(int s = 0; s < grid.length(); s += 3) {
+			number = Integer.parseInt( String.valueOf(grid.charAt(s)) + grid.charAt(s+1));
+			numberGrid[i][j] = number;
+			j += 1;
+			if(j == 20) {
+				j = 0;
+				i += 1;
+			}
+		}
+
+		//horizontal
+		System.out.println("------HORIZONTAL------");
+		for(i = 0; i < 20; i++){
+			for(j = 0; j < 17; j++) {
+				System.out.println(numberGrid[i][j] +" "+ numberGrid[i][j+1] +" "+ numberGrid[i][j+2] +" "+ numberGrid[i][j+3]);
+				currentProduct = numberGrid[i][j] * numberGrid[i][j+1] * numberGrid[i][j+2] * numberGrid[i][j+3];
+				if(currentProduct > maxProduct) {
+					maxProduct = currentProduct;
+				}
+			}
+		}
+
+		//vertical
+		System.out.println("------VERTICAL------");
+		for(i = 0; i < 17; i++){
+			for(j = 0; j < 20; j++) {
+				System.out.println(numberGrid[i][j] +" "+ numberGrid[i+1][j] +" "+ numberGrid[i+2][j] +" "+ numberGrid[i+3][j]);
+				currentProduct = numberGrid[i][j] * numberGrid[i+1][j] * numberGrid[i+2][j] * numberGrid[i+3][j];
+				if(currentProduct > maxProduct) {
+					maxProduct = currentProduct;
+				}
+			}
+		}
+
+		//forward diagonal
+		System.out.println("------FORWARD DIAGONAL------");
+		for(i = 0; i < 17; i++){
+			for(j = 0; j < 17; j++) {
+				System.out.println(numberGrid[i][j] +" "+ numberGrid[i+1][j+1] +" "+ numberGrid[i+2][j+2] +" "+ numberGrid[i+3][j+3]);
+				currentProduct = numberGrid[i][j] * numberGrid[i+1][j+1] * numberGrid[i+2][j+2] * numberGrid[i+3][j+3];
+				if(currentProduct > maxProduct) {
+					maxProduct = currentProduct;
+				}
+			}
+		}
+
+		//backward diagonal
+		System.out.println("------BACKWARD DIAGONAL------");
+		for(i = 0; i < 17; i++){
+			for(j = 0; j < 17; j++) {
+				System.out.println(numberGrid[i+3][j] +" "+ numberGrid[i+2][j+1] +" "+ numberGrid[i+1][j+2] +" "+ numberGrid[i][j+3]);
+				currentProduct = numberGrid[i+3][j] * numberGrid[i+2][j+1] * numberGrid[i+1][j+2] * numberGrid[i][j+3];
+				if(currentProduct > maxProduct) {
+					maxProduct = currentProduct;
+				}
+			}
+		}
+
+		return maxProduct;
+	}
+
 }

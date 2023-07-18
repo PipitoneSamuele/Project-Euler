@@ -37,7 +37,10 @@ public class Main {
 		//System.out.println(solution.pythagoreanTriplet() + "\n");
 
 		//10) Special pythagorean triplet
-		System.out.println(solution.sumPrime(2000000) + "\n");
+		//System.out.println(solution.sumPrime(2000000) + "\n");
+
+		/**11) Largest product ina  grid  - IMPO - check commento nel codice */
+		System.out.println(solution.largestProductInGrid() + "\n");
 
 		//print out the exec time
 		double endTime   = System.nanoTime();
