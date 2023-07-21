@@ -43,7 +43,10 @@ public class Main {
 		//System.out.println(solution.largestProductInGrid() + "\n");
 
 		/**12) Highly divisible triangular number  -  IMPO  - perchè radice quadrata? */
-		System.out.println(solution.divisibleTriangularNumber() + "\n");
+		//System.out.println(solution.divisibleTriangularNumber() + "\n");
+
+		//13) Large sum
+		System.out.println(solution.largeSum() + "\n");
 
 		//print out the exec time
 		double endTime   = System.nanoTime();

@@ -2,6 +2,10 @@ package implementation;
 
 import utility.BigString;
 
+import java.math.BigInteger;
+import java.util.ArrayList;
+import java.util.List;
+
 public class Solutions {
 
 	/**-----------------------------------------------------------------------------------------------------------------
@@ -336,7 +340,7 @@ public class Solutions {
 	/**
 	 * Perchè radice???
 	 */
-	public static int divisibleTriangularNumber() {
+	public int divisibleTriangularNumber() {
 		int currentDivisors = 0;
 		int count = 1;
 		int currentNumber = 0;
@@ -351,6 +355,27 @@ public class Solutions {
 			}
 		}
 		return currentNumber;
+	}
+
+	public String largeSum() {
+
+		String largeSum = BigString.LARGESUM;
+		String currentNumber;
+		int j;
+		List<BigInteger> bigIntegers = new ArrayList<>();
+		BigInteger bigSum = new BigInteger("0");
+
+		for(int i = 0; i < largeSum.length()/50; i++) {
+			j = i * 50;
+			currentNumber = largeSum.substring(j, j+50);
+			bigIntegers.add(new BigInteger(currentNumber));
+		}
+
+		for(BigInteger i : bigIntegers) {
+			bigSum = bigSum.add(i);
+		}
+
+		return bigSum.toString().substring(0,10);
 	}
 
 }
