@@ -333,4 +333,24 @@ public class Solutions {
 		return maxProduct;
 	}
 
+	/**
+	 * Perchè radice???
+	 */
+	public static int divisibleTriangularNumber() {
+		int currentDivisors = 0;
+		int count = 1;
+		int currentNumber = 0;
+
+		while(currentDivisors < 500) {
+			currentNumber += count;
+			System.out.println("current number: " + currentNumber);
+			count += 1;
+			currentDivisors = 0;
+			for(int i = 1; i <= (int) Math.sqrt(currentNumber); i++) {
+				if (currentNumber % i == 0) currentDivisors += 2;
+			}
+		}
+		return currentNumber;
+	}
+
 }

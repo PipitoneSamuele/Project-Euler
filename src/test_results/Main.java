@@ -40,7 +40,10 @@ public class Main {
 		//System.out.println(solution.sumPrime(2000000) + "\n");
 
 		/**11) Largest product ina  grid  - IMPO - check commento nel codice */
-		System.out.println(solution.largestProductInGrid() + "\n");
+		//System.out.println(solution.largestProductInGrid() + "\n");
+
+		/**12) Highly divisible triangular number  -  IMPO  - perchè radice quadrata? */
+		System.out.println(solution.divisibleTriangularNumber() + "\n");
 
 		//print out the exec time
 		double endTime   = System.nanoTime();
